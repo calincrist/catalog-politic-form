@@ -16,8 +16,16 @@ function NewProfile({ t }) {
     setValues({...values, [name]: value})
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const { firstName, lastName } = values;
+
+    alert(`Submitting Name ${firstName} and ${lastName}`);
+  }
+
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <p>New profile page</p>
 
       <TextInput 
@@ -35,7 +43,8 @@ function NewProfile({ t }) {
 
       <UploadImageInput/>
 
-    </div>
+      <input type="submit" value="Submit" />
+    </form>
   );
 };
 
